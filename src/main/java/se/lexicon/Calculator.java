@@ -1,4 +1,5 @@
 package se.lexicon;
+
 import java.util.Scanner;
 
 /**
@@ -8,36 +9,50 @@ import java.util.Scanner;
  * The program don't stop running until the User choose to end it
  * by terminating the loop.
  */
+
 public class Calculator {
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to calculator, write the first number");
-        int number1 = scanner.nextInt();
-        System.out.println("Write one of the four operations +,-,*,/");
-        String operation = scanner.next();
-        System.out.println("Write the second number");
-        int number2 = scanner.nextInt();
+        while (true){
 
-        switch (operation) {
+            System.out.println("Type 'Y' to start calculate");
+            String answer = scanner.next();
 
-            case "-":
-                System.out.println(number1 - number2);
+            if (answer.equalsIgnoreCase("Y")) {
+
+
+                System.out.println("Write the first number to calculate");
+                int number1 = scanner.nextInt();
+                System.out.println("Write one of the four operations +,-,*,/");
+                String operation = scanner.next();
+                System.out.println("Write the second number");
+                int number2 = scanner.nextInt();
+
+                switch (operation) {
+
+                    case "-":
+                        System.out.println(number1 - number2);
+                        break;
+                    case "/":
+                        System.out.println(number1 / number2);
+                        break;
+                    case "+":
+                        System.out.println(number1 + number2);
+                        break;
+                    case "*":
+                        System.out.println(number1 * number2);
+                        break;
+                    default:
+                        System.out.println("try again");
+                }
+            }else {
                 break;
-            case "/":
-                System.out.println(number1 / number2);
-                break;
-            case "+":
-                System.out.println(number1 + number2);
-                break;
-            case "*":
-                System.out.println(number1 * number2);
-                break;
-            default:
-                System.out.println("try again");
+            }
         }
+        System.out.println("You just end it!");
 
     }
 
