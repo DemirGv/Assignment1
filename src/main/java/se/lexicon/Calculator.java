@@ -21,13 +21,13 @@ public class Calculator {
         while (true){
 
             System.out.println("Type 'Y' to start calculate");
-            String answer = scanner.next();
+            String answer = getString(scanner);
 
             if (answer.equalsIgnoreCase("Y")) {
 
 
                 System.out.println("Write the first number to calculate");
-                int number1 = scanner.nextInt();
+                int number1 = getNumber(scanner);
                 System.out.println("Write one of the four operations +,-,*,/");
                 String operation = getString(scanner);
                 System.out.println("Write the second number");
@@ -57,4 +57,22 @@ public class Calculator {
         System.out.println("You just end it!");
     }
 
+    public static String getString(Scanner scanner){
+        return scanner.nextLine();
+    }
+
+    public static int getNumber(Scanner scanner){
+        int number = 0;
+        boolean invalidNumber = true;
+        while (invalidNumber){
+            try{
+               String s = scanner.nextLine();
+                number = Integer.parseInt(s);
+                invalidNumber = false;
+            }catch (NumberFormatException ex){
+                System.out.println("Invalid, try again");
+           }
+        }
+        return number;
+    }
 }
