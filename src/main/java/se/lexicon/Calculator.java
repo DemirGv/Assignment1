@@ -1,13 +1,15 @@
 package se.lexicon;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * handles basic operations such as addition,
+ * handles basic operations: addition,
  * subtraction, multiplication and division.
  * The result of each operation is presented in a consistent way.
  * The program don't stop running until the User choose to end it
  * by terminating the loop.
+ * It handles Exceptions
  */
 
 public class Calculator {
@@ -27,9 +29,9 @@ public class Calculator {
                 System.out.println("Write the first number to calculate");
                 int number1 = scanner.nextInt();
                 System.out.println("Write one of the four operations +,-,*,/");
-                String operation = scanner.next();
+                String operation = getString(scanner);
                 System.out.println("Write the second number");
-                int number2 = scanner.nextInt();
+                int number2 = getNumber(scanner);
 
                 switch (operation) {
 
@@ -53,7 +55,6 @@ public class Calculator {
             }
         }
         System.out.println("You just end it!");
-
     }
 
 }
